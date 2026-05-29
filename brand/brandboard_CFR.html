@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Brand Board · Centro Formación Robótica</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:#F7F9FB;color:#1A3A5C;}
+@media print{body{background:#fff;} .no-print{display:none;} .page{page-break-after:always;box-shadow:none;margin:0;border-radius:0;}}
+
+.print-btn{position:fixed;top:24px;right:24px;background:#1A3A5C;color:#fff;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;padding:12px 28px;border:none;cursor:pointer;z-index:999;transition:background 0.2s;}
+.print-btn:hover{background:#2A5A8C;}
+
+.page{width:794px;min-height:1123px;margin:40px auto;background:#fff;box-shadow:0 8px 48px rgba(26,58,92,0.12);position:relative;overflow:hidden;}
+
+/* ── PÁGINA 1 — PORTADA ── */
+.cover{background:#1A3A5C;min-height:1123px;display:flex;flex-direction:column;justify-content:space-between;padding:80px;}
+.cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(133,200,232,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(133,200,232,0.05) 1px,transparent 1px);background-size:72px 72px;}
+.cover-top{position:relative;display:flex;align-items:center;gap:20px;}
+.cover-div{width:0.5px;height:36px;background:rgba(255,255,255,0.2);}
+.cover-logotype{font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:0.4em;text-transform:uppercase;line-height:1.5;}
+.cover-center{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;}
+.cover-tag{font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:#85C8E8;margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+.cover-tag::before{content:'';display:block;width:32px;height:0.5px;background:#85C8E8;}
+.cover-h1{font-family:'Cormorant Garamond',serif;font-size:96px;font-weight:300;color:#fff;line-height:0.95;letter-spacing:-0.02em;margin-bottom:8px;}
+.cover-h1 strong{font-weight:600;display:block;}
+.cover-sub{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:32px;}
+.cover-bottom{position:relative;display:flex;justify-content:space-between;align-items:flex-end;}
+.cover-year{font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(255,255,255,0.2);letter-spacing:0.2em;}
+.cover-conf{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.12);}
+
+/* ── PÁGINAS INTERNAS ── */
+.inner{padding:72px 80px;min-height:1123px;display:flex;flex-direction:column;}
+.section-label{font-size:8px;letter-spacing:0.38em;text-transform:uppercase;color:#4A90C4;margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+.section-label::before{content:'';display:block;width:16px;height:0.5px;background:#4A90C4;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#1A3A5C;line-height:1.1;margin-bottom:48px;}
+.section-title strong{font-weight:600;}
+.divider{width:100%;height:0.5px;background:#E8F2FA;margin:40px 0;}
+
+/* LOGO */
+.logo-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;}
+.logo-box{padding:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+.logo-box.light{background:#fff;border:1px solid #F0F4F8;}
+.logo-box.dark{background:#1A3A5C;}
+.logo-box.mid{background:#F7F9FB;border:1px solid #F0F4F8;}
+.logo-box.accent{background:#85C8E8;}
+.logo-label{font-size:8px;letter-spacing:0.24em;text-transform:uppercase;color:#AABBCC;}
+.logo-box.dark .logo-label{color:rgba(255,255,255,0.3);}
+.logo-box.accent .logo-label{color:rgba(26,58,92,0.5);}
+.isotipo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.isotipo-cell{padding:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+
+/* COLORES */
+.colors-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:0;margin-bottom:32px;}
+.color-cell{display:flex;flex-direction:column;}
+.color-swatch{height:80px;}
+.color-info{padding:10px 8px;}
+.color-name{font-size:8px;font-weight:500;color:#1A3A5C;letter-spacing:0.06em;margin-bottom:3px;}
+.color-hex{font-size:9px;color:#4A90C4;font-family:monospace;letter-spacing:0.04em;}
+
+/* TIPOGRAFÍA */
+.typo-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:40px;}
+.typo-block{}
+.typo-family{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#4A90C4;margin-bottom:16px;}
+.typo-sample-serif{font-family:'Cormorant Garamond',serif;}
+.typo-sample-sans{font-family:'DM Sans',sans-serif;}
+.typo-desc{font-size:11px;color:#4A7FB5;line-height:1.7;margin-bottom:20px;}
+.typo-weights{display:flex;flex-direction:column;gap:8px;}
+.typo-weight-row{display:flex;align-items:baseline;gap:16px;}
+.weight-label{font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:#AABBCC;width:90px;flex-shrink:0;}
+.weight-sample-serif{font-family:'Cormorant Garamond',serif;font-size:22px;color:#1A3A5C;}
+.weight-sample-sans{font-family:'DM Sans',sans-serif;font-size:18px;color:#1A3A5C;}
+
+/* TAGLINE */
+.tagline-box{background:#F7F9FB;border-left:3px solid #85C8E8;padding:32px 40px;margin-bottom:40px;}
+.tagline-text{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;font-style:italic;color:#1A3A5C;line-height:1.4;}
+.tagline-text em{color:#85C8E8;}
+.tagline-note{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#AABBCC;margin-top:12px;}
+
+/* CONTACTO */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:auto;}
+.contact-block{background:#F7F9FB;padding:32px;}
+.contact-block.dark{background:#1A3A5C;}
+.contact-field-label{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:#AABBCC;margin-bottom:6px;}
+.contact-block.dark .contact-field-label{color:rgba(255,255,255,0.3);}
+.contact-field-val{font-size:13px;color:#1A3A5C;margin-bottom:20px;}
+.contact-block.dark .contact-field-val{color:#fff;}
+.contact-field-val:last-child{margin-bottom:0;}
+
+/* NORMAS */
+.normas-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:40px;}
+.norma-cell{padding:28px 32px;background:#F7F9FB;}
+.norma-cell.bad{background:#FDE8E8;}
+.norma-icon{font-size:16px;margin-bottom:10px;}
+.norma-title{font-size:11px;font-weight:500;color:#1A3A5C;margin-bottom:6px;}
+.norma-cell.bad .norma-title{color:#8C1A1A;}
+.norma-desc{font-size:10px;color:#4A7FB5;line-height:1.6;}
+.norma-cell.bad .norma-desc{color:#C45A5A;}
+
+.page-footer{margin-top:auto;padding-top:32px;border-top:0.5px solid #F0F4F8;display:flex;justify-content:space-between;align-items:center;}
+.page-footer-brand{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:#AABBCC;}
+.page-footer-conf{font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:#E0E8F0;}
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Imprimir / Guardar PDF</button>
+
+<!-- ═══ PÁGINA 1 — PORTADA ═══ -->
+<div class="page">
+<div class="cover">
+  <div class="cover-grid"></div>
+  <div class="cover-top">
+    <svg width="52" height="42" viewBox="0 0 92 68" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="46" cy="52" r="10" fill="none" stroke="#fff" stroke-width="2"/>
+      <circle cx="46" cy="52" r="5" fill="#fff"/>
+      <path d="M 10 30 A 44 44 0 0 1 82 30" fill="none" stroke="#6AAED6" stroke-width="1" opacity="0.5"/>
+      <circle cx="10" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="10" cy="30" r="2.8" fill="#6AAED6"/>
+      <circle cx="46" cy="10" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="46" cy="10" r="2.8" fill="#6AAED6"/>
+      <circle cx="82" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="82" cy="30" r="2.8" fill="#6AAED6"/>
+      <line x1="10" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+      <line x1="46" y1="10" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+      <line x1="82" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+    </svg>
+    <div class="cover-div"></div>
+    <div class="cover-logotype">Centro<br>Formación Robótica</div>
+  </div>
+  <div class="cover-center">
+    <div class="cover-tag">Identidad visual corporativa</div>
+    <div class="cover-h1">Brand<br><strong>Board</strong></div>
+    <div class="cover-sub">Centro Formación Robótica · 2026</div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-year">2026</div>
+    <div class="cover-conf">Uso interno · Confidencial</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ PÁGINA 2 — LOGO ═══ -->
+<div class="page">
+<div class="inner">
+  <div class="section-label">Identidad</div>
+  <div class="section-title">Logo y <strong>variantes</strong></div>
+
+  <div class="logo-row">
+    <div class="logo-box light">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 75" width="260" height="61">
+        <g transform="translate(4, 8)">
+          <circle cx="46" cy="52" r="10" fill="none" stroke="#1A3A5C" stroke-width="2"/><circle cx="46" cy="52" r="5" fill="#1A3A5C"/>
+          <path d="M 10 30 A 44 44 0 0 1 82 30" fill="none" stroke="#3A6FA0" stroke-width="0.9" opacity="0.5"/>
+          <circle cx="10" cy="30" r="6.5" fill="none" stroke="#3A6FA0" stroke-width="1.8"/><circle cx="10" cy="30" r="2.8" fill="#3A6FA0"/>
+          <circle cx="46" cy="10" r="6.5" fill="none" stroke="#3A6FA0" stroke-width="1.8"/><circle cx="46" cy="10" r="2.8" fill="#3A6FA0"/>
+          <circle cx="82" cy="30" r="6.5" fill="none" stroke="#3A6FA0" stroke-width="1.8"/><circle cx="82" cy="30" r="2.8" fill="#3A6FA0"/>
+          <line x1="10" y1="30" x2="46" y2="52" stroke="#3A6FA0" stroke-width="0.7" opacity="0.4"/>
+          <line x1="46" y1="10" x2="46" y2="52" stroke="#3A6FA0" stroke-width="0.7" opacity="0.4"/>
+          <line x1="82" y1="30" x2="46" y2="52" stroke="#3A6FA0" stroke-width="0.7" opacity="0.4"/>
+        </g>
+        <line x1="112" y1="10" x2="112" y2="68" stroke="#1A3A5C" stroke-width="0.5" opacity="0.2"/>
+        <text x="126" y="28" font-family="Georgia,serif" font-size="14" fill="#1A3A5C" letter-spacing="4" font-weight="bold">CENTRO</text>
+        <text x="126" y="46" font-family="Georgia,serif" font-size="14" fill="#1A3A5C" letter-spacing="4" font-weight="bold">FORMACIÓN</text>
+        <text x="126" y="64" font-family="Georgia,serif" font-size="14" fill="#1A3A5C" letter-spacing="4" font-weight="bold">ROBÓTICA</text>
+      </svg>
+      <div class="logo-label">Versión positiva — sobre blanco</div>
+    </div>
+    <div class="logo-box dark">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 75" width="260" height="61">
+        <g transform="translate(4, 8)">
+          <circle cx="46" cy="52" r="10" fill="none" stroke="#fff" stroke-width="2"/><circle cx="46" cy="52" r="5" fill="#fff"/>
+          <path d="M 10 30 A 44 44 0 0 1 82 30" fill="none" stroke="#6AAED6" stroke-width="0.9" opacity="0.5"/>
+          <circle cx="10" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="10" cy="30" r="2.8" fill="#6AAED6"/>
+          <circle cx="46" cy="10" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="46" cy="10" r="2.8" fill="#6AAED6"/>
+          <circle cx="82" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="82" cy="30" r="2.8" fill="#6AAED6"/>
+          <line x1="10" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+          <line x1="46" y1="10" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+          <line x1="82" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+        </g>
+        <line x1="112" y1="10" x2="112" y2="68" stroke="#fff" stroke-width="0.5" opacity="0.2"/>
+        <text x="126" y="28" font-family="Georgia,serif" font-size="14" fill="#fff" letter-spacing="4" font-weight="bold">CENTRO</text>
+        <text x="126" y="46" font-family="Georgia,serif" font-size="14" fill="#fff" letter-spacing="4" font-weight="bold">FORMACIÓN</text>
+        <text x="126" y="64" font-family="Georgia,serif" font-size="14" fill="#fff" letter-spacing="4" font-weight="bold">ROBÓTICA</text>
+      </svg>
+      <div class="logo-label">Versión negativa — sobre azul marino</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label" style="margin-bottom:6px;">Isotipo — escalas</div>
+  <div class="isotipo-row">
+    <div class="isotipo-cell" style="background:#1A3A5C;">
+      <svg width="64" height="51" viewBox="0 0 92 68" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="46" cy="52" r="10" fill="none" stroke="#fff" stroke-width="2"/><circle cx="46" cy="52" r="5" fill="#fff"/>
+        <path d="M 10 30 A 44 44 0 0 1 82 30" fill="none" stroke="#6AAED6" stroke-width="1" opacity="0.5"/>
+        <circle cx="10" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="10" cy="30" r="2.8" fill="#6AAED6"/>
+        <circle cx="46" cy="10" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="46" cy="10" r="2.8" fill="#6AAED6"/>
+        <circle cx="82" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="82" cy="30" r="2.8" fill="#6AAED6"/>
+        <line x1="10" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="46" y1="10" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="82" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+      </svg>
+      <div class="logo-label" style="color:rgba(255,255,255,0.3);">64px</div>
+    </div>
+    <div class="isotipo-cell" style="background:#1A3A5C;">
+      <svg width="38" height="30" viewBox="0 0 92 68" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="46" cy="52" r="10" fill="none" stroke="#fff" stroke-width="2"/><circle cx="46" cy="52" r="5" fill="#fff"/>
+        <path d="M 10 30 A 44 44 0 0 1 82 30" fill="none" stroke="#6AAED6" stroke-width="1" opacity="0.5"/>
+        <circle cx="10" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="10" cy="30" r="2.8" fill="#6AAED6"/>
+        <circle cx="46" cy="10" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="46" cy="10" r="2.8" fill="#6AAED6"/>
+        <circle cx="82" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="82" cy="30" r="2.8" fill="#6AAED6"/>
+        <line x1="10" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="46" y1="10" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="82" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+      </svg>
+      <div class="logo-label" style="color:rgba(255,255,255,0.3);">38px</div>
+    </div>
+    <div class="isotipo-cell" style="background:#1A3A5C;">
+      <svg width="20" height="16" viewBox="0 0 92 68" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="46" cy="52" r="10" fill="none" stroke="#fff" stroke-width="2"/><circle cx="46" cy="52" r="5" fill="#fff"/>
+        <path d="M 10 30 A 44 44 0 0 1 82 30" fill="none" stroke="#6AAED6" stroke-width="1" opacity="0.5"/>
+        <circle cx="10" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="10" cy="30" r="2.8" fill="#6AAED6"/>
+        <circle cx="46" cy="10" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="46" cy="10" r="2.8" fill="#6AAED6"/>
+        <circle cx="82" cy="30" r="6.5" fill="none" stroke="#6AAED6" stroke-width="1.8"/><circle cx="82" cy="30" r="2.8" fill="#6AAED6"/>
+        <line x1="10" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="46" y1="10" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+        <line x1="82" y1="30" x2="46" y2="52" stroke="#6AAED6" stroke-width="0.7" opacity="0.4"/>
+      </svg>
+      <div class="logo-label" style="color:rgba(255,255,255,0.3);">20px · mínimo</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-brand">Centro Formación Robótica · Brand Board 2026</div>
+    <div class="page-footer-conf">Uso interno · Confidencial</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ PÁGINA 3 — PALETA + TIPOGRAFÍA ═══ -->
+<div class="page">
+<div class="inner">
+  <div class="section-label">Sistema cromático</div>
+  <div class="section-title">Paleta de <strong>color</strong></div>
+
+  <div class="colors-grid">
+    <div class="color-cell"><div class="color-swatch" style="background:#1A3A5C;"></div><div class="color-info"><div class="color-name">Azul marino</div><div class="color-hex">#1A3A5C</div></div></div>
+    <div class="color-cell"><div class="color-swatch" style="background:#2A5A8C;"></div><div class="color-info"><div class="color-name">Azul medio</div><div class="color-hex">#2A5A8C</div></div></div>
+    <div class="color-cell"><div class="color-swatch" style="background:#3A6FA0;"></div><div class="color-info"><div class="color-name">Azul base</div><div class="color-hex">#3A6FA0</div></div></div>
+    <div class="color-cell"><div class="color-swatch" style="background:#4A90C4;"></div><div class="color-info"><div class="color-name">Azul claro</div><div class="color-hex">#4A90C4</div></div></div>
+    <div class="color-cell"><div class="color-swatch" style="background:#85C8E8;"></div><div class="color-info"><div class="color-name">Azul acento</div><div class="color-hex">#85C8E8</div></div></div>
+    <div class="color-cell"><div class="color-swatch" style="background:#E8F2FA;border:1px solid #dde8f4;"></div><div class="color-info"><div class="color-name">Azul hielo</div><div class="color-hex">#E8F2FA</div></div></div>
+    <div class="color-cell"><div class="color-swatch" style="background:#FFFFFF;border:1px solid #E8F2FA;"></div><div class="color-info"><div class="color-name">Blanco</div><div class="color-hex">#FFFFFF</div></div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Tipografía</div>
+  <div class="section-title" style="margin-bottom:32px;">Sistema <strong>tipográfico</strong></div>
+
+  <div class="typo-grid">
+    <div class="typo-block">
+      <div class="typo-family">Cormorant Garamond — Serif</div>
+      <div class="typo-desc">Para logo, titulares y elementos de primer nivel. Transmite autoridad, elegancia y precisión.</div>
+      <div class="typo-weights">
+        <div class="typo-weight-row"><span class="weight-label">Light 300</span><span class="weight-sample-serif" style="font-weight:300;">Aa Bb Cc 123</span></div>
+        <div class="typo-weight-row"><span class="weight-label">Regular 400</span><span class="weight-sample-serif" style="font-weight:400;">Aa Bb Cc 123</span></div>
+        <div class="typo-weight-row"><span class="weight-label">Italic</span><span class="weight-sample-serif" style="font-style:italic;font-weight:300;">Aa Bb Cc 123</span></div>
+        <div class="typo-weight-row"><span class="weight-label">Semibold 600</span><span class="weight-sample-serif" style="font-weight:600;">Aa Bb Cc 123</span></div>
+      </div>
+    </div>
+    <div class="typo-block">
+      <div class="typo-family">DM Sans — Sans-serif</div>
+      <div class="typo-desc">Para subtítulos, cuerpo de texto, etiquetas e interfaces digitales. Legible y moderna.</div>
+      <div class="typo-weights">
+        <div class="typo-weight-row"><span class="weight-label">Light 300</span><span class="weight-sample-sans" style="font-weight:300;">Aa Bb Cc 123</span></div>
+        <div class="typo-weight-row"><span class="weight-label">Regular 400</span><span class="weight-sample-sans" style="font-weight:400;">Aa Bb Cc 123</span></div>
+        <div class="typo-weight-row"><span class="weight-label">Medium 500</span><span class="weight-sample-sans" style="font-weight:500;">Aa Bb Cc 123</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-brand">Centro Formación Robótica · Brand Board 2026</div>
+    <div class="page-footer-conf">Uso interno · Confidencial</div>
+  </div>
+</div>
+</div>
+
+<!-- ═══ PÁGINA 4 — TAGLINE + NORMAS + CONTACTO ═══ -->
+<div class="page">
+<div class="inner">
+  <div class="section-label">Mensaje de marca</div>
+  <div class="section-title">Tagline y <strong>tono</strong></div>
+
+  <div class="tagline-box">
+    <div class="tagline-text">"Estamos construyendo el centro de referencia en formación para cirugía robótica de España. Por y para <em>cirujanos</em>."</div>
+    <div class="tagline-note">Tagline principal · Proyecto en lanzamiento · 2026</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label" style="margin-bottom:6px;">Normas de uso</div>
+  <div class="section-title" style="font-size:32px;margin-bottom:24px;">Uso <strong>correcto</strong></div>
+
+  <div class="normas-grid">
+    <div class="norma-cell">
+      <div class="norma-icon">✓</div>
+      <div class="norma-title">Logo sobre blanco o azul marino</div>
+      <div class="norma-desc">Usar siempre sobre fondos #FFFFFF o #1A3A5C para máxima legibilidad.</div>
+    </div>
+    <div class="norma-cell bad">
+      <div class="norma-icon">✗</div>
+      <div class="norma-title">No usar sobre fondos de color vivo</div>
+      <div class="norma-desc">Evitar fondos de colores saturados, fotografías sin overlay o gradientes complejos.</div>
+    </div>
+    <div class="norma-cell">
+      <div class="norma-icon">✓</div>
+      <div class="norma-title">Acento #85C8E8 solo para subtexto</div>
+      <div class="norma-desc">Reservar el azul acento para énfasis en cursiva, highlights y elementos secundarios.</div>
+    </div>
+    <div class="norma-cell bad">
+      <div class="norma-icon">✗</div>
+      <div class="norma-title">No deformar ni rotar el isotipo</div>
+      <div class="norma-desc">Mantener proporciones originales y zona de exclusión mínima equivalente a la altura de la letra C.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-label" style="margin-bottom:16px;">Contacto</div>
+  <div class="contact-grid">
+    <div class="contact-block dark">
+      <div class="contact-field-label">Email</div>
+      <div class="contact-field-val">formacion@cfr.es</div>
+      <div class="contact-field-label">WhatsApp</div>
+      <div class="contact-field-val">+34 659 87 70 61</div>
+      <div class="contact-field-label">Ubicación</div>
+      <div class="contact-field-val">Madrid, España</div>
+    </div>
+    <div class="contact-block">
+      <div class="contact-field-label">Web</div>
+      <div class="contact-field-val">centroformacionrobotica.es</div>
+      <div class="contact-field-label">Estado del proyecto</div>
+      <div class="contact-field-val">En construcción · Lanzamiento 2026</div>
+      <div class="contact-field-label">Lista de espera</div>
+      <div class="contact-field-val">Activa en la web</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="page-footer-brand">Centro Formación Robótica · Brand Board 2026</div>
+    <div class="page-footer-conf">Uso interno · Confidencial</div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
